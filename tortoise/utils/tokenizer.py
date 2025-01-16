@@ -133,7 +133,7 @@ def basic_cleaners(text):
 
 def transliteration_cleaners(text):
   '''Pipeline for non-English text that transliterate to ASCII.'''
-  text = convert_to_ascii(text)
+  # text = convert_to_ascii(text)
   text = lowercase(text)
   text = collapse_whitespace(text)
   return text
@@ -141,10 +141,10 @@ def transliteration_cleaners(text):
 
 def english_cleaners(text):
   '''Pipeline for English text, including number and abbreviation expansion.'''
-  text = convert_to_ascii(text)
+  # text = convert_to_ascii(text)
   text = lowercase(text)
-  text = expand_numbers(text)
-  text = expand_abbreviations(text)
+  # text = expand_numbers(text)
+  # text = expand_abbreviations(text)
   text = collapse_whitespace(text)
   text = text.replace('"', '')
   return text
