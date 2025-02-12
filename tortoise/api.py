@@ -221,7 +221,7 @@ class TextToSpeech:
                                           model_dim=1024,
                                           heads=16, number_text_tokens=255, start_text_token=255, checkpointing=False,
                                           train_solo_embeddings=False).cpu().eval()
-            ar_path=hf_hub_download(repo_id="milans213/tortoiseTTS_srpski", filename="custom_language_gpt.pth", cache_dir=models_dir)
+            ar_path=hf_hub_download(repo_id="milans213/tortoiseTTS_srpski", filename="sr_language_gpt.pth", cache_dir=models_dir)
             print("Downloaded model path:", ar_path)
             state_dict = torch.load(ar_path)
             self.autoregressive.load_state_dict(state_dict, strict=False)
