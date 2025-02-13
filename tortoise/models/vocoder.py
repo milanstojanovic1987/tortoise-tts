@@ -261,7 +261,7 @@ class UnivNetGenerator(nn.Module):
         self.conv_post = nn.Sequential(
             nn.LeakyReLU(lReLU_slope),
             nn.utils.weight_norm(nn.Conv1d(channel_size, 1, 7, padding=3, padding_mode='reflect')),
-            nn.Tanh(),
+            # nn.Tanh(),
         )
 
     def forward(self, c, z):
