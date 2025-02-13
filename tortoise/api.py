@@ -223,11 +223,10 @@ class TextToSpeech:
                                           train_solo_embeddings=False).cpu().eval()
             # ar_path=hf_hub_download(repo_id="milans213/tortoise_TTS_rs", filename="sr_language_gpt.pth", cache_dir=models_dir)
             # state_dict = torch.load(ar_path)
+            # self.autoregressive.load_state_dict(state_dict, strict=False)
 
             ar_path = hf_hub_download(repo_id="milans213/tortoise_TTS_rs", filename="2000_rs.pth", cache_dir=models_dir)
             self.autoregressive.load_state_dict(torch.load(ar_path), strict=False)
-            
-            self.autoregressive.load_state_dict(state_dict, strict=False)
             self.autoregressive.post_init_gpt2_config(use_deepspeed=use_deepspeed, kv_cache=kv_cache, half=self.half)
             
             self.diffusion = DiffusionTts(model_channels=1024, num_layers=10, in_channels=100, out_channels=200,
